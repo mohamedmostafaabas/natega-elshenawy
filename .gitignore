@@ -1,7 +1,7 @@
-.vercel
+.vercel/
+__pycache__/
+*.pyc
+*.xlsx
+*.xls
 *.zip
-Thumbs.db
 .DS_Store
-
-.vercel
-.env*
