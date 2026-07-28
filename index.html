@@ -9,6 +9,9 @@
   <meta property="og:title" content="نتيجة الثانوية العامة | الشناوي">
   <meta property="og:description" content="ابحث بالاسم أو رقم الجلوس واعرف النتيجة في ثوانٍ.">
   <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>نتيجة الثانوية العامة | الشناوي</title>
 
@@ -45,7 +48,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+      font-family: "Tajawal", Tahoma, Arial, sans-serif;
       color: var(--ink);
       background:
         radial-gradient(circle at 12% 12%, rgba(66, 201, 223, .22), transparent 28rem),
@@ -677,6 +680,353 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
+
+
+    /* Search-first redesign */
+    :root {
+      --navy-950: #071827;
+      --navy-900: #0b2238;
+      --navy-800: #103c5b;
+      --blue-700: #176b87;
+      --blue-500: #1f9bb8;
+      --cyan-400: #57d3cf;
+      --gold-500: #f4b942;
+      --gold-300: #ffe08a;
+      --surface: rgba(255,255,255,.96);
+      --ink: #102435;
+      --muted: #6f8290;
+      --line: #dfe9ee;
+      --success: #0b8a61;
+      --danger: #c5392f;
+    }
+
+    body {
+      font-family: "Tajawal", Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(87, 211, 207, .18), transparent 25rem),
+        radial-gradient(circle at 8% 30%, rgba(31, 155, 184, .12), transparent 28rem),
+        linear-gradient(180deg, #f7fbfc 0%, #eef5f7 100%);
+    }
+
+    button, input { font-family: inherit; }
+
+    .page {
+      width: min(1220px, calc(100% - 30px));
+      padding: 22px 0 30px;
+    }
+
+    .topbar { margin-bottom: 18px; }
+    .brand { gap: 12px; }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #0c344f, #1f9bb8);
+      box-shadow: 0 13px 30px rgba(15, 67, 94, .22);
+    }
+    .brand-copy b { font-size: 18px; }
+    .brand-copy span { font-size: 12px; }
+    .year-pill {
+      border-color: rgba(16,60,91,.1);
+      background: rgba(255,255,255,.8);
+      color: #103c5b;
+    }
+
+    .hero {
+      min-height: 320px;
+      padding: clamp(34px, 6vw, 70px);
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 13% 22%, rgba(87,211,207,.18), transparent 19rem),
+        linear-gradient(118deg, #071827 0%, #0d3651 56%, #176b87 100%);
+      box-shadow: 0 30px 90px rgba(7,24,39,.22);
+    }
+
+    .hero::before {
+      opacity: .11;
+      background-size: 48px 48px;
+    }
+
+    .hero::after {
+      width: 390px;
+      height: 390px;
+      left: -115px;
+      top: -160px;
+      border-width: 64px;
+      border-color: rgba(87,211,207,.11);
+      box-shadow: 0 0 0 50px rgba(255,224,138,.045);
+    }
+
+    .hero-content { max-width: 790px; }
+    .hero-kicker {
+      margin-bottom: 18px;
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.075);
+      color: #d9fbf8;
+    }
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -1.7px;
+    }
+    .hero h1 span { color: #ffe08a; }
+    .hero p {
+      max-width: 690px;
+      color: rgba(255,255,255,.75);
+      font-size: clamp(15px, 1.8vw, 18px);
+    }
+    .feature-chip {
+      border-radius: 999px;
+      border-color: rgba(255,255,255,.095);
+      background: rgba(255,255,255,.075);
+      padding: 9px 13px;
+    }
+
+    .content-stack {
+      width: min(1050px, calc(100% - 26px));
+      margin-top: -58px;
+    }
+
+    .runtime-only { display: none !important; }
+
+    .search-card {
+      display: block !important;
+      position: relative;
+      overflow: hidden;
+      padding: clamp(24px, 4vw, 38px);
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 30px;
+      background: rgba(255,255,255,.965);
+      box-shadow: 0 24px 70px rgba(11,45,65,.15);
+      backdrop-filter: blur(18px);
+    }
+
+    .search-card::before {
+      width: 290px;
+      height: 290px;
+      top: -205px;
+      left: -85px;
+      background: radial-gradient(circle, rgba(87,211,207,.18), transparent 69%);
+    }
+
+    .search-intro {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .search-eyebrow,
+    .results-kicker {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: #17839b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .4px;
+    }
+
+    .search-intro h2 {
+      margin: 0;
+      color: #0b2238;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+    }
+
+    .search-intro p {
+      max-width: 650px;
+      margin: 9px auto 0;
+      color: #718591;
+      font-size: 15px;
+    }
+
+    .search-form {
+      padding: 18px;
+      border: 1px solid #e1ecef;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #f8fbfc, #ffffff);
+    }
+
+    .search-grid {
+      grid-template-columns: .86fr 1.4fr;
+      gap: 14px;
+    }
+
+    .field label {
+      margin-bottom: 8px;
+      color: #2c4555;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    input[type="text"] {
+      min-height: 58px;
+      padding: 14px 48px 14px 15px;
+      border: 1px solid #cfdee4;
+      border-radius: 15px;
+      background: #fff;
+      font-size: 16px;
+      box-shadow: 0 3px 12px rgba(12,52,79,.035);
+    }
+
+    input[type="text"]:focus {
+      border-color: #1f9bb8;
+      box-shadow: 0 0 0 4px rgba(31,155,184,.11), 0 8px 22px rgba(12,52,79,.06);
+    }
+
+    .input-icon { color: #78909c; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      min-height: 52px;
+      border-radius: 14px;
+      font-weight: 900;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0d3d59, #1f9bb8);
+      box-shadow: 0 12px 26px rgba(23,107,135,.2);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      box-shadow: 0 15px 32px rgba(23,107,135,.27);
+    }
+
+    .btn-primary:disabled {
+      opacity: .72;
+      cursor: wait;
+    }
+
+    body.is-loading-data #searchBtn::after {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border: 2px solid rgba(255,255,255,.38);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .75s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .mini-spinner {
+      width: 17px;
+      height: 17px;
+      border: 2px solid rgba(255,255,255,.38);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .75s linear infinite;
+    }
+
+    .btn-secondary {
+      min-width: 92px;
+      color: #24495f;
+      background: #edf4f6;
+      border-color: #dce8ec;
+    }
+
+    .search-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: #718591;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .search-note svg { width: 17px; height: 17px; color: #0b8a61; }
+
+    .notice { display: none; }
+    .notice.error {
+      display: block;
+      margin: 17px 0 0;
+      text-align: center;
+      color: #b12e27;
+      background: #fff4f2;
+      border-color: #f0c7c3;
+    }
+
+    .results-card {
+      padding: clamp(21px, 3vw, 31px);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.95);
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 20px 55px rgba(11,45,65,.11);
+    }
+
+    .results-head h2 {
+      margin: 0;
+      color: #0b2238;
+      font-size: 25px;
+    }
+    .results-summary { color: #6f8290; }
+
+    .table-wrap {
+      border-color: #dfe9ee;
+      border-radius: 19px;
+      box-shadow: 0 8px 24px rgba(12,52,79,.045);
+    }
+    th {
+      color: #123e57;
+      background: #eef6f7;
+      font-size: 13px;
+    }
+    th, td { padding: 15px 14px; }
+    tbody tr:hover { background: #f8fcfc; }
+    .badge {
+      color: #087755;
+      background: #eaf8f2;
+      border-color: #c9eadc;
+    }
+
+    .site-footer {
+      width: min(1050px, calc(100% - 26px));
+      margin-top: 18px;
+      padding: 15px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.55);
+      color: #72838e;
+    }
+    .developer-credit {
+      color: #24495f;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 16px, 1220px); padding-top: 13px; }
+      .hero { padding: 31px 21px 82px; border-radius: 26px; }
+      .hero h1 { font-size: clamp(35px, 11vw, 50px); }
+      .hero p { line-height: 1.75; }
+      .hero-features { margin-top: 20px; }
+      .content-stack { width: calc(100% - 12px); margin-top: -60px; }
+      .search-card, .results-card { border-radius: 23px; }
+      .search-card { padding: 22px 17px; }
+      .search-intro { margin-bottom: 19px; }
+      .search-intro h2 { font-size: 30px; }
+      .search-form { padding: 14px; border-radius: 18px; }
+      .search-grid { grid-template-columns: 1fr; }
+      .actions { grid-template-columns: 1fr; }
+      .btn-secondary { width: 100%; }
+      .search-note { align-items: flex-start; text-align: center; line-height: 1.6; }
+      .site-footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 430px) {
+      .brand-mark { width: 42px; height: 42px; }
+      .brand-copy b { font-size: 15px; }
+      .hero { padding-inline: 18px; }
+      .feature-chip:last-child { display: none; }
+      input[type="text"] { min-height: 56px; font-size: 15px; }
+    }
+
   </style>
 </head>
 <body>
@@ -711,100 +1061,75 @@
     </header>
 
     <main class="content-stack">
-      <section class="card data-card" id="loadCard">
-        <div class="section-head">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-            </span>
-            <div>
-              <h2>قاعدة بيانات النتيجة</h2>
-              <p>يتم تحميل الملف تلقائيًا بعد النشر على Vercel.</p>
-            </div>
-          </div>
-          <span class="secure-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 4.7 2.9 8 7 10 4.1-2 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-            جاهز وآمن
-          </span>
-        </div>
-
-        <div class="file-zone" id="dropZone">
-          <span class="upload-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></svg>
-          </span>
-          <div class="file-copy">
-            <strong>اختر ملف النتيجة عند التشغيل محليًا</strong>
-            <div class="small">ضع ملف <b>نتيجة ثانوية عامة نظام حديث.xlsx</b> بجوار ملف HTML، ثم اختره أو اسحبه إلى هذه المنطقة.</div>
-          </div>
-          <label class="btn btn-primary" for="fileInput">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M5 20h14"/></svg>
-            اختيار ملف Excel
-          </label>
-          <input id="fileInput" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-        </div>
-
-        <div class="status-wrap" id="statusWrap" aria-live="polite">
-          <div class="status-line">
-            <span id="statusText">جارٍ تجهيز الملف…</span>
-            <span id="statusPercent">0%</span>
-          </div>
-          <div class="progress"><span id="progressBar"></span></div>
-        </div>
-
-        <div class="notice" id="loadNotice">جارٍ فحص طريقة التشغيل وتجهيز قاعدة البيانات…</div>
-      </section>
-
-      <section class="card search-card" id="searchCard">
+      <section class="card search-card" id="searchCard" aria-labelledby="searchTitle">
         <div class="search-intro">
-          <h2>ابحث عن النتيجة</h2>
-          <p>يمكنك استخدام أحد الحقلين فقط، أو الجمع بين الاسم ورقم الجلوس لتحديد النتيجة بدقة أكبر.</p>
+          <span class="search-eyebrow">نتيجة الثانوية العامة</span>
+          <h2 id="searchTitle">ابحث عن نتيجتك</h2>
+          <p>اكتب رقم الجلوس أو اسم الطالب، ثم اضغط على زر عرض النتيجة.</p>
         </div>
 
-        <div class="search-grid">
-          <div class="field">
-            <label for="seatInput">رقم الجلوس</label>
-            <div class="input-wrap">
-              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h3"/></svg>
-              <input id="seatInput" type="text" inputmode="numeric" autocomplete="off" placeholder="مثال: 2001970">
+        <div class="search-form">
+          <div class="search-grid">
+            <div class="field">
+              <label for="seatInput">رقم الجلوس</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h5M8 16h3"/></svg>
+                <input id="seatInput" type="text" inputmode="numeric" autocomplete="off" placeholder="مثال: 2001970">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="nameInput">اسم الطالب</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.2 3.5-6.5 8-6.5s7.2 2.3 8 6.5"/></svg>
+                <input id="nameInput" type="text" autocomplete="off" placeholder="اكتب الاسم كاملًا أو جزءًا منه">
+              </div>
             </div>
           </div>
-          <div class="field">
-            <label for="nameInput">اسم الطالب</label>
-            <div class="input-wrap">
-              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.2 3.5-6.5 8-6.5s7.2 2.3 8 6.5"/></svg>
-              <input id="nameInput" type="text" autocomplete="off" placeholder="اكتب الاسم كاملًا أو جزءًا منه">
-            </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" id="searchBtn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
+              <span>عرض النتيجة</span>
+            </button>
+            <button class="btn btn-secondary" id="clearBtn" type="button">مسح</button>
           </div>
         </div>
 
-        <div class="actions">
-          <button class="btn btn-primary" id="searchBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg>
-            بحث الآن
-          </button>
-          <button class="btn btn-secondary" id="clearBtn">مسح الحقول</button>
-          <button class="btn btn-secondary" id="changeFileBtn">تغيير ملف النتيجة</button>
+        <div class="search-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3 5 6v5c0 4.7 2.9 8 7 10 4.1-2 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>يمكن البحث بجزء من الاسم، مع دعم اختلافات كتابة الهمزات.</span>
         </div>
 
-        <div class="stats">
-          <div class="stat"><b id="studentsCount">0</b><span>عدد الطلاب المتاحين للبحث</span></div>
-          <div class="stat"><b id="lastMatches">0</b><span>نتائج آخر عملية بحث</span></div>
-          <div class="stat"><b id="lastTime">0</b><span>زمن البحث بالمللي ثانية</span></div>
-        </div>
+        <div class="notice" id="loadNotice" role="alert" aria-live="polite"></div>
       </section>
 
-      <section class="card results-card" id="resultsCard">
+      <section class="card results-card" id="resultsCard" aria-labelledby="resultsTitle">
         <div class="results-head">
-          <h2>نتائج البحث</h2>
+          <div>
+            <span class="results-kicker">بيانات الطالب</span>
+            <h2 id="resultsTitle">نتائج البحث</h2>
+          </div>
           <div class="results-summary" id="resultsSummary"></div>
         </div>
         <div class="table-wrap" id="tableWrap"></div>
       </section>
+
+      <!-- عناصر تشغيل داخلية غير ظاهرة للمستخدم -->
+      <section class="runtime-only" id="loadCard" aria-hidden="true">
+        <div id="dropZone"></div>
+        <input id="fileInput" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <div id="statusWrap"><span id="statusText"></span><span id="statusPercent"></span><span id="progressBar"></span></div>
+        <button id="changeFileBtn" type="button"></button>
+        <span id="studentsCount">0</span>
+        <span id="lastMatches">0</span>
+        <span id="lastTime">0</span>
+      </section>
     </main>
 
     <footer class="site-footer" data-developed-by="Mohamed Mostafa" data-powered="true">
-      <span>يمكن البحث بكلمات متفرقة من الاسم، مع دعم اختلافات كتابة الهمزات.</span>
-      <span class="developer-credit">Developed by <strong>Mohamed Mostafa</strong> <span class="power-dot">•</span> Powered = true</span>
+      <span>بوابة نتيجة الشناوي</span>
+      <span class="developer-credit">&lt;Developed by=&quot;Mohamed Mostafa&quot; andPowered=true /&gt;</span>
     </footer>
   </div>
 
@@ -1224,8 +1549,16 @@ const DEFAULT_FILE_NAME = 'نتيجة ثانوية عامة نظام حديث.xl
     const worker = new Worker(workerUrl);
 
     function setNotice(message, kind = '') {
-      loadNotice.className = 'notice' + (kind ? ` ${kind}` : '');
+      // لا نعرض رسائل التحميل أو النجاح؛ تظهر فقط الأخطاء المهمة للمستخدم.
+      if (kind !== 'error') {
+        loadNotice.className = 'notice';
+        loadNotice.textContent = '';
+        loadNotice.style.display = 'none';
+        return;
+      }
+      loadNotice.className = 'notice error';
       loadNotice.textContent = message;
+      loadNotice.style.display = 'block';
     }
 
     function setProgress(percent, text) {
@@ -1239,6 +1572,14 @@ const DEFAULT_FILE_NAME = 'نتيجة ثانوية عامة نظام حديث.xl
       fileInput.disabled = loading;
       searchBtn.disabled = loading || !isReady || isSearching;
       changeFileBtn.disabled = loading;
+      const preparing = Boolean(loading && !isReady);
+      document.body.classList.toggle('is-loading-data', preparing);
+      searchBtn.setAttribute('aria-busy', String(preparing));
+      if (preparing) {
+        searchBtn.innerHTML = '<span class="mini-spinner"></span><span>جارٍ تجهيز البحث…</span>';
+      } else if (!isSearching) {
+        searchBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg><span>عرض النتيجة</span>';
+      }
     }
 
     async function loadFile(file) {
@@ -1251,7 +1592,6 @@ const DEFAULT_FILE_NAME = 'نتيجة ثانوية عامة نظام حديث.xl
 
       isReady = false;
       resultsCard.style.display = 'none';
-      searchCard.style.display = 'none';
       setLoadingState(true);
       setNotice('يُرجى الانتظار؛ الملف كبير وقد يستغرق تجهيزه عدة ثوانٍ.', '');
       setProgress(1, `جارٍ قراءة ${file.name}…`);
@@ -1378,7 +1718,7 @@ const DEFAULT_FILE_NAME = 'نتيجة ثانوية عامة نظام حديث.xl
 
       isSearching = true;
       searchBtn.disabled = true;
-      searchBtn.textContent = 'جارٍ البحث…';
+      searchBtn.innerHTML = '<span class="mini-spinner"></span><span>جارٍ البحث…</span>';
       worker.postMessage({ type: 'search', seat, name });
     }
 
@@ -1391,23 +1731,22 @@ const DEFAULT_FILE_NAME = 'نتيجة ثانوية عامة نظام حديث.xl
         isReady = true;
         isSearching = false;
         setLoadingState(false);
-        setProgress(100, 'الملف جاهز للبحث');
         $('loadCard').classList.add('is-ready');
-        setNotice(`تم تجهيز قاعدة البيانات بنجاح — ${msg.rowCount.toLocaleString('ar-EG')} طالب جاهزون للبحث.`, 'success');
+        setNotice('', '');
         $('studentsCount').textContent = msg.rowCount.toLocaleString('ar-EG');
         searchCard.style.display = 'block';
         seatInput.focus();
       } else if (msg.type === 'results') {
         isSearching = false;
         searchBtn.disabled = false;
-        searchBtn.textContent = 'بحث';
+        searchBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.7-3.7"/></svg><span>عرض النتيجة</span>';
         renderResults(msg);
       } else if (msg.type === 'error') {
         $('loadCard').classList.remove('is-ready');
         isReady = false;
         isSearching = false;
         setLoadingState(false);
-        searchBtn.textContent = 'بحث';
+        searchBtn.textContent = 'عرض النتيجة';
         setNotice(msg.message || 'حدث خطأ غير متوقع.', 'error');
       }
     };
